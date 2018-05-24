@@ -23,10 +23,8 @@ mock.onPost('/api/auth').reply(config => {
     const data = JSON.parse(config.data);
 
     if(username === data.body.username && password === data.body.password) {
-        console.log('success')
         return [200, {token}]
     } else {
-        console.log('fail')
         return [401, { error : 'invalid login credentials'}]
     }
 });
@@ -40,9 +38,9 @@ mock.onGet('/api/friends').reply(config => {
     if(headers.Authorization === `Bearer ${token}`){
         return [200, {friends}]
     } else if(!headers) {
-        return [400, 'No Authorization Header']
+        return [400, {error: 'No Authorization Header'}]
     } else if(headers.Authorization !== `Bearer ${token}`) {
-        return [401, 'Unauthorized token']
+        return [401, {error: 'Unauthorized token'}]
     }
 
 

@@ -10,8 +10,6 @@ class App extends Component {
     loginFail = false;
 
 
-    // ...
-
     login = (username, password) => {
         // login the user with the given credentials and update the component state upon success or failure respectively.
 
@@ -49,11 +47,10 @@ class App extends Component {
 
     render() {
         // complete the JSX code below to show the proper markup depending on whether or not the user has been authenticated.
-    console.log('state?', this.state)
+        // isLoggedIn toggles which buttons/fields are hidden/displayed
         if (this.state.isLoggedIn) {
             return (
                 <div className="container">
-
 
                     {this.loginFail ? <p className="error">Login credentials were incorrect!</p> : <p></p>}
 
@@ -62,15 +59,11 @@ class App extends Component {
                         <button onClick={this.testApi}>Test API</button>
                          <button onClick={this.logout}>Logout</button>
                     </div>
-
-
-
                 </div>
             );
         } else {
             return (
                 <div className="container">
-
 
                     {this.loginFail ? <p className="error">Login credentials were incorrect!</p> : <p></p>}
 

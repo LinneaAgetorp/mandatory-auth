@@ -16,7 +16,6 @@ class AuthService {
 
     // use this method to catch http errors. 
     handleError(error) {
-
         throw error.data
 
     }
@@ -64,7 +63,7 @@ class AuthService {
         // with the response body. 
         //
         // If e.g. invoking /api/friends, the 'resource' parameter should equal 'friends'.
-        console.log('token', this.user.token)
+
         return http.get(`/api/${resource}`, {headers: {Authorization: `Bearer ${this.user.token}`}})
             .then(res => {
                 return res.data.friends
