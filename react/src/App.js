@@ -71,7 +71,7 @@ class App extends Component {
 
                     </div>
 
-                    {this.state ? < Login onLogin={this.login}/> : ''}
+                    < Login onLogin={this.login}/>
 
                 </div>
             );
