@@ -15,7 +15,6 @@ class Login extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        console.log('onsubmit')
         // calls the passed callback from the parent <App> component.
         this.props.onLogin(e.target.username.value, e.target.password.value);
     }

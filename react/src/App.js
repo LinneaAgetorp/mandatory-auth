@@ -55,7 +55,7 @@ class App extends Component {
                     {this.loginFail ? <p className="error">Login credentials were incorrect!</p> : <p></p>}
 
                     <div className="status">
-                        <span>User ID: {this.state.name || 'N/A'}</span>
+                        <span>User ID: {this.state.name}</span>
                         <button onClick={this.testApi}>Test API</button>
                          <button onClick={this.logout}>Logout</button>
                     </div>
@@ -68,7 +68,7 @@ class App extends Component {
                     {this.loginFail ? <p className="error">Login credentials were incorrect!</p> : <p></p>}
 
                     <div className="status">
-                        <span>User ID: {this.state.name || 'N/A'}</span>
+                        <span>User ID: N/A</span>
                         <button onClick={this.testApi}>Test API</button>
 
                     </div>
