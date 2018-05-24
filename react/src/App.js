@@ -21,6 +21,7 @@ class App extends Component {
             })
             .then(() => {
                 this.setState(AuthService.getAuthState())
+                this.loginFail = false
             })
 
     };
