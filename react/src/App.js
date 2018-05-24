@@ -52,8 +52,6 @@ class App extends Component {
             return (
                 <div className="container">
 
-                    {this.loginFail ? <p className="error">Login credentials were incorrect!</p> : <p></p>}
-
                     <div className="status">
                         <span>User ID: {this.state.name}</span>
                         <button onClick={this.testApi}>Test API</button>
