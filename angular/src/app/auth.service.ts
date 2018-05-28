@@ -33,7 +33,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
     // perform any logic upon application startup here...
     this.token = JSON.parse(localStorage.getItem('accessToken'))//startvärde
-
+    this._user = jwt_decode(this.token)
   }
 
   // ...
@@ -61,7 +61,9 @@ export class AuthService {
     // Make sure to handle a successful authentication by storing and also decoding the returned token, as well as
     // catching http errors.
 
-    return this.http.post<User>('/api/auth', {credentials}).subscribe(
+    return this.http.post<User>(
+      '/api/auth', {credentials})
+      .subscribe(
       token => {
         this._user = jwt_decode(token)
         this.token = token

@@ -8,7 +8,11 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {
+    if(this.authService.authenticated) {
+      this.username = this.authService.user
+    }
+  }
   username: any;
 
   login(credentials) {
