@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div *ngIf="this.authService.authenticated" class="status">
+    <span>User ID: {{this.username.name}}</span>
+    <button (click)="testApi()">Test API</button>
+    <button (click)="logout()" >Logout</button>
+  </div>
+
+  <div *ngIf = "!this.authService.authenticated">
+
+    <p class="error" *ngIf="this.authService.loginFail">Login credentials were incorrect!</p>
+    <span>User ID: N/A</span>
+    <button (click)="testApi()">Test API</button>
+
+    <form
+      style="margin-bottom: 10px"
+      (ngSubmit)="login(f.value); f.reset()"
+      #f="ngForm"
+
+    >
+      <div class='form-group'>
+        <label>User Name</label>
+        <input
+          type='text'
+          class='form-control'
+          placeholder='enter user name'
+          name='username'
+          ngModel
+          #username="ngModel"
+
+          required
+          minlength="1"
+
+          />
+
+        <label>Password</label>
+        <input
+          type='password'
+          class='form-control'
+          placeholder='enter password'
+          name='password'
+          ngModel
+          #password="ngModel"
+
+          required
+          minlength="8"
+
+          />
+        <br/>
+
+        <button type='submit' [disabled]="!f.valid">Login</button>
+      </div>
+    </form>
+  </div>
+
+</div>
